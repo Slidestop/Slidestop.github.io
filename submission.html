@@ -11,27 +11,6 @@
       background-repeat: repeat;
     }
   </style>
-  <script>
-    function downloadFiles() {
-      // First file
-      var cityThemeDataUrl = "./City Theme Pt. 1.pptx";
-      var cityThemeLink = document.createElement("a");
-      cityThemeLink.href = cityThemeDataUrl;
-      cityThemeLink.download = "City Theme Pt. 1.pptx";
-      document.body.appendChild(cityThemeLink);
-      cityThemeLink.click();
-      document.body.removeChild(cityThemeLink);
-
-      // Second file
-      var anotherThemeDataUrl = "./City Theme Pt. 2.pptx";
-      var anotherThemeLink = document.createElement("a");
-      anotherThemeLink.href = anotherThemeDataUrl;
-      anotherThemeLink.download = "City Theme Pt. 2.pptx";
-      document.body.appendChild(anotherThemeLink);
-      anotherThemeLink.click();
-      document.body.removeChild(anotherThemeLink);
-    }
-  </script>
 </head>
 
 <body>
@@ -45,8 +24,7 @@
   </nav>
 
   <div id="section2">
-    <h2>Submission</h2>
-    <p>Click <button onclick="downloadFiles()">here</button> to download the City Theme.</p>
+    <h2></h2>Themes</h2>
   </div>
 </body>
 
