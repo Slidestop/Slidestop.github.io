@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SlideStop</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if view count is stored in localStorage
+            let viewCount = localStorage.getItem("viewCount") || 0;
+
+            // Update the view count on the page
+            document.getElementById("viewCount").textContent = viewCount;
+
+            // Increment the view count and store it in localStorage
+            viewCount++;
+            localStorage.setItem("viewCount", viewCount.toString());
+        });
+    </script>
     <link rel="icon" type="image/x-icon" href="Logo123.ico">
     <style>
         body {
@@ -70,4 +83,5 @@
         <p><a href="https://docs.google.com/presentation/d/1ymeMDbo0FTqugQLtmt5a_hAbJoNiqS0mMJK1BPO7PUY/edit#slide=id.p">Holi Theme</a></p>
     </section>
 </body>
+<footnote>This site has been viewed <span id="viewCount">0</span> times</footnote>
 </html>
