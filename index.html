@@ -25,23 +25,27 @@
 </head>
 <body>
     <div>
-        <p>Days until November 1, 2030:</p>
+        <p>Time until November 1, 2030:</p>
         <div id="countdown">Calculating...</div>
     </div>
 
     <script>
-        function calculateDaysUntil() {
+        function calculateTimeUntil() {
             const today = new Date();
-            const targetDate = new Date('2030-11-01');
+            const targetDate = new Date('2030-11-01T00:00:00');
             const timeDifference = targetDate - today;
-            const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
-            document.getElementById('countdown').textContent = daysRemaining;
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }
 
-        calculateDaysUntil();
-        setInterval(calculateDaysUntil, 1000 * 60 * 60 * 24); // Update daily
+        calculateTimeUntil();
+        setInterval(calculateTimeUntil, 1000); // Update every second
     </script>
 </body>
 </html>
-
