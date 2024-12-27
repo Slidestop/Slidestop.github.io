@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to November 1, 2030</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Days until November 1, 2030:</p>
+        <div id="countdown">Calculating...</div>
+    </div>
+
+    <script>
+        function calculateDaysUntil() {
+            const today = new Date();
+            const targetDate = new Date('2030-11-01');
+            const timeDifference = targetDate - today;
+            const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            document.getElementById('countdown').textContent = daysRemaining;
+        }
+
+        calculateDaysUntil();
+        setInterval(calculateDaysUntil, 1000 * 60 * 60 * 24); // Update daily
+    </script>
+</body>
+</html>
 
