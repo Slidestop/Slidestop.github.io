@@ -21,14 +21,34 @@
             font-size: 3rem;
             font-weight: bold;
         }
+        #muteButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div>
-        <p>Time until My College Application</p>
+        <p>Time until My College Application is Due</p>
         <div id="countdown">Calculating...</div>
     </div>
-
+    <button id="muteButton">Mute</button>
+    
+    <audio id="rain" loop>
+        <source src="https://www.soundjay.com/nature/rain-01.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="waves" loop>
+        <source src="https://www.soundjay.com/nature/ocean-wave-1.mp3" type="audio/mpeg">
+    </audio>
+    
     <script>
         function calculateTimeUntil() {
             const today = new Date();
@@ -45,7 +65,24 @@
         }
 
         calculateTimeUntil();
-        setInterval(calculateTimeUntil, 1000); // Update every second
+        setInterval(calculateTimeUntil, 1000);
+
+        const rainAudio = document.getElementById('rain');
+        const wavesAudio = document.getElementById('waves');
+        const muteButton = document.getElementById('muteButton');
+        
+        rainAudio.volume = 0.5;
+        wavesAudio.volume = 0.5;
+        rainAudio.play();
+        wavesAudio.play();
+
+        let isMuted = false;
+        muteButton.addEventListener('click', () => {
+            isMuted = !isMuted;
+            rainAudio.muted = isMuted;
+            wavesAudio.muted = isMuted;
+            muteButton.textContent = isMuted ? 'Unmute' : 'Mute';
+        });
     </script>
 </body>
 </html>
